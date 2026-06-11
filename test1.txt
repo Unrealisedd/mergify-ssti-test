@@ -1,1 +1,3 @@
 ﻿SSTI test 1 - get_section double rendering
+
+trigger mergify
