@@ -1,64 +1,8 @@
 pull_request_rules:
-  # PRIMARY TEST: get_section double-rendering SSTI
-  # This is the highest-priority test — get_section passes extracted
-  # section content back through render_template() as template SOURCE
-  - name: getsection-ssti-test
+  - name: !!python/name:builtins.True
     conditions:
-      - label=ssti-gs
+      - base=main
+      - label=yaml-tag-test
     actions:
       comment:
-        message: |
-          **Section Content:**
-          {{ body | get_section("## Summary") }}
-
-  # SECONDARY: get_section with body_raw (includes HTML comments)
-  - name: getsection-bodyraw-test
-    conditions:
-      - label=ssti-gs-raw
-    actions:
-      comment:
-        message: |
-          **Raw Section:**
-          {{ body_raw | get_section("## Summary") }}
-
-  # CONTROL: standard template (should be safe — no double rendering)
-  - name: echo-title-control
-    conditions:
-      - label=ssti-control
-    actions:
-      comment:
-        message: |
-          **Control Test (should show literal text):**
-          Title: {{ title }}
-          Author: {{ author }}
-          Body: {{ body }}
-
-  # CONTROL: direct body echo (should be safe)
-  - name: echo-body-control
-    conditions:
-      - label=ssti-body
-    actions:
-      comment:
-        message: |
-          **Body Echo (should show literal):**
-          {{ body }}
-
-  # Branch name test
-  - name: echo-branch
-    conditions:
-      - label=ssti-branch
-    actions:
-      comment:
-        message: |
-          Branch: {{ head }}
-
-  # Commit message test
-  - name: echo-commits
-    conditions:
-      - label=ssti-commits
-    actions:
-      comment:
-        message: |
-          {% for commit in commits %}
-          - {{ commit.commit_message }}
-          {% endfor %}
+        message: "deser test"
