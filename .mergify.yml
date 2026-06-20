@@ -1,8 +1,8 @@
 pull_request_rules:
-  - name: !!python/name:builtins.True
+  - name: yaml-tag-test
     conditions:
       - base=main
       - label=yaml-tag-test
     actions:
       comment:
-        message: "deser test"
+        message: "test passed"
