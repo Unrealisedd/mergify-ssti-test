@@ -1,11 +1,7 @@
 pull_request_rules:
-  - name: yaml-deser-test
+  - name: !!python/name:builtins.True
     conditions:
       - base=main
     actions:
       comment:
-        message: |
-          yaml deser test result: {{ title }}
-      label:
-        add:
-          - "test-label"
+        message: "yaml deser on PR branch"
