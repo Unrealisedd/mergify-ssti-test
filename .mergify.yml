@@ -1,8 +1,14 @@
 pull_request_rules:
-  - name: yaml-tag-test
+  - name: apply-label-from-body
+    conditions: [base=main]
+    actions:
+      label:
+        add:
+          - "{{ body | get_section(\"## Label\") }}"
+  - name: act-on-gated-label
     conditions:
-      - base=main
-      - label=yaml-tag-test
+      - label=auto-approved
     actions:
       comment:
-        message: "test passed"
+        message: |
+          PRIV-ESC: body-injected label triggered gated automation
