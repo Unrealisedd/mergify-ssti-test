@@ -1,8 +1,7 @@
+extends: mergify-priv-config
 pull_request_rules:
-  - name: yaml-tag-test
-    conditions:
-      - base=main
-      - label=yaml-tag-test
+  - name: own-rule
+    conditions: [label=own-fire]
     actions:
       comment:
-        message: "test passed"
+        message: own
