@@ -1,8 +1,8 @@
+extends: Mergifyio/mergify
 pull_request_rules:
-  - name: yaml-tag-test
+  - name: own-rule
     conditions:
-      - base=main
-      - label=yaml-tag-test
+      - label=own-fire
     actions:
       comment:
-        message: "test passed"
+        message: own rule fired
