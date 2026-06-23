@@ -1,8 +1,6 @@
 pull_request_rules:
-  - name: yaml-tag-test
-    conditions:
-      - base=main
-      - label=yaml-tag-test
+  - name: base-marker
+    conditions: [base=main]
     actions:
       comment:
-        message: "test passed"
+        message: BASE-CONFIG-EXECUTED
