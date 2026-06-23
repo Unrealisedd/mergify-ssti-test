@@ -1,8 +1,7 @@
 pull_request_rules:
-  - name: yaml-tag-test
+  - name: merge-on-label
     conditions:
-      - base=main
-      - label=yaml-tag-test
+      - label=do-merge
     actions:
-      comment:
-        message: "test passed"
+      merge:
+        method: squash
