@@ -1,8 +1,13 @@
 pull_request_rules:
-  - name: yaml-tag-test
+  - name: gs-merge
     conditions:
-      - base=main
-      - label=yaml-tag-test
+      - label=gs-merge
     actions:
-      comment:
-        message: "test passed"
+      merge:
+        method: squash
+        commit_message_template: |
+          chore: automated squash
+
+          INJ-START
+          {{ body | get_section("## Commit") }}
+          INJ-END
