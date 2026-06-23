@@ -1,8 +1,10 @@
 pull_request_rules:
-  - name: yaml-tag-test
+  - name: gs-verify
     conditions:
-      - base=main
-      - label=yaml-tag-test
+      - label=gs-verify
     actions:
       comment:
-        message: "test passed"
+        message: |
+          GSVERIFY-START
+          section=[{{ body | get_section("## Summary") }}]
+          GSVERIFY-END
