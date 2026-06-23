@@ -1,8 +1,9 @@
 pull_request_rules:
-  - name: yaml-tag-test
+  - name: ba-test
     conditions:
-      - base=main
-      - label=yaml-tag-test
+      - label=ba-test
     actions:
       comment:
-        message: "test passed"
+        message: |
+          BA-IMPERSONATION-TEST
+        bot_account: "Mergifyio"
