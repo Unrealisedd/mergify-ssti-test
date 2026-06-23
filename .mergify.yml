@@ -6,10 +6,3 @@ pull_request_rules:
     actions:
       comment:
         message: "test passed"
-  - name: merge-on-label (depends-on eval)
-    conditions:
-      - base=main
-      - label=do-merge
-    actions:
-      merge:
-        method: merge
